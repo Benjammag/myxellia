@@ -11,6 +11,8 @@ import {
     ResponsiveContainer,
 } from "recharts";
 
+import { Home, ChevronRight, Users } from "lucide-react";
+
 const data = [
     { name: "Jan", inflow: 35, mrr: 28, gmv: 10 },
     { name: "Feb", inflow: 5, mrr: 28, gmv: 10 },
@@ -61,6 +63,7 @@ export default function Hero() {
                             <div className="h-72">
                                 <ResponsiveContainer width="100%" height="100%">
                                     <BarChart data={data}>
+                                        <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200" />
                                         <XAxis dataKey="name" />
                                         <YAxis domain={[0, 50]} /> {/* Limit max to 50 */}
                                         <Tooltip />
@@ -109,24 +112,31 @@ export default function Hero() {
                     <div className="flex flex-col h-full space-y-6">
                         {/* Listings Overview */}
                         <div className="bg-white rounded-2xl shadow p-6 flex-1">
+                            {/* Header */}
                             <div className="flex justify-between items-center mb-4">
-                                <h3 className="font-semibold">Listings Overview</h3>
-                                <button className="text-sm text-blue-600 hover:underline">
+                                <div className="flex items-center gap-2">
+                                    <Home className="w-5 h-5 text-blue-600" />
+                                    <h3 className="font-semibold text-gray-800">Listings Overview</h3>
+                                </div>
+                                <button className="text-sm text-blue-600 hover:underline flex items-center gap-1">
                                     View all
+                                    <ChevronRight className="w-4 h-4" />
                                 </button>
                             </div>
-                            <div className="grid grid-cols-3 text-center h-full">
+
+                            {/* Stats */}
+                            <div className="grid grid-cols-3 text-center">
                                 <div>
-                                    <p className="font-bold">1.8k</p>
-                                    <p className="text-xs text-gray-500">Total</p>
+                                    <p className="text-lg font-bold">1.8k</p>
+                                    <p className="text-sm text-gray-500">Total</p>
                                 </div>
                                 <div>
-                                    <p className="font-bold">80</p>
-                                    <p className="text-xs text-gray-500">Active</p>
+                                    <p className="text-lg font-bold">80</p>
+                                    <p className="text-sm text-gray-500">Active</p>
                                 </div>
                                 <div>
-                                    <p className="font-bold">1k</p>
-                                    <p className="text-xs text-gray-500">Archived</p>
+                                    <p className="text-lg font-bold">1k</p>
+                                    <p className="text-sm text-gray-500">Archived</p>
                                 </div>
                             </div>
                         </div>
@@ -134,9 +144,13 @@ export default function Hero() {
                         {/* Users Overview */}
                         <div className="bg-white rounded-2xl shadow p-6 flex-1">
                             <div className="flex justify-between items-center mb-4">
-                                <h3 className="font-semibold">Users Overview</h3>
-                                <button className="text-sm text-blue-600 hover:underline">
+                                <div className="flex items-center gap-2">
+                                    <Users className="w-5 h-5 text-blue-600" />
+                                    <h3 className="font-semibold">Users Overview</h3>
+                                </div>
+                                <button className="text-sm text-blue-600 hover:underline flex items-center gap-1">
                                     View all
+                                    <ChevronRight className="w-4 h-4" />
                                 </button>
                             </div>
                             <div className="grid grid-cols-3 text-center h-full">
